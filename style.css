@@ -1,0 +1,84 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  overflow-x: hidden;
+  /* overflow-y: auto; */
+  box-sizing: border-box;
+}
+
+.con-1 {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.con-1::after {
+  background: conic-gradient(red, rebeccapurple, blue, orange, green, yellow);
+  content: "";
+  height: 350px;
+  width: 350px;
+  /* opacity: 0.5; */
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  z-index: -1;
+  rotate: 180deg;
+  clip-path: circle(80% at 0% 0%);
+}
+.con-1::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+  height: 350px;
+  width: 350px;
+  /* opacity: 0.5; */
+  background: transparent;
+  clip-path: circle(80% at 0% 0%);
+  background: conic-gradient(red, rebeccapurple, blue, orange, green, yellow);
+}
+b {
+  width: fit-content;
+  background: linear-gradient(
+    45deg,
+    red,
+    rebeccapurple,
+    blue,
+    orange,
+    green,
+    yellow
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.con-2 {
+  width: fit-content;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+.col {
+  padding: 2.5em;
+  cursor: pointer;
+  background: #1e88e5
+    radial-gradient(
+      circle,
+      #1e88e5,
+      #3949ab calc(25% + 1px),
+      #1e88e5 calc(25% - 1px),
+      #3949ab calc(25% + 1px),
+      #1e88e5 calc(25% - 1px),
+      #3949ab,
+      #1e88e5,
+      #3949ab calc(50% + 10px),
+      #1e88e5 calc(50% - 10px),
+      #3949ab
+    );
+  border-radius: 1em;
+}
+.game-box {
+  width: fit-content;
+  height: max-content;
+}

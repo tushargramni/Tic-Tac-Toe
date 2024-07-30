@@ -9,113 +9,13 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./style.css">
     <link
       rel="shortcut icon"
       href="https://img.icons8.com/external-beshi-glyph-kerismaker/48/external-Tic-Tac-Toe-planning-strategy-beshi-glyph-kerismaker.png"
       type="image/x-icon"
     />
-    <!--<link rel="stylesheet" href="con-1.css" /> -->
-    <!-- <link rel="stylesheet" href="con-2.css" /> -->
-    <style>
-      * {
-        margin: 0%;
-        padding: 0%;
-        overflow-x: hidden;
-        /* overflow-y: auto; */
-        box-sizing: border-box;
-      }
-
-      .con-1 {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        align-content: center;
-        justify-content: center;
-        background-color: transparent;
-      }
-      .con-1::after {
-        background: conic-gradient(
-          red,
-          rebeccapurple,
-          blue,
-          orange,
-          green,
-          yellow
-        );
-        content: "";
-        height: 350px;
-        width: 350px;
-        /* opacity: 0.5; */
-        position: absolute;
-        bottom: 0%;
-        right: 0%;
-        z-index: -1;
-        rotate: 180deg;
-        clip-path: circle(80% at 0% 0%);
-      }
-      .con-1::before {
-        content: "";
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        z-index: -1;
-        height: 350px;
-        width: 350px;
-        /* opacity: 0.5; */
-        background: transparent;
-        clip-path: circle(80% at 0% 0%);
-        background: conic-gradient(
-          red,
-          rebeccapurple,
-          blue,
-          orange,
-          green,
-          yellow
-        );
-      }
-      b {
-        width: fit-content;
-        background: linear-gradient(
-          45deg,
-          red,
-          rebeccapurple,
-          blue,
-          orange,
-          green,
-          yellow
-        );
-        -webkit-background-clip: text;
-        color: transparent;
-      }
-      .con-2 {
-        width: fit-content;
-        min-height: 100vh;
-        overflow-y: auto;
-      }
-      .col {
-        padding: 2.5em;
-        cursor: pointer;
-        background: #1e88e5
-          radial-gradient(
-            circle,
-            #1e88e5,
-            #3949ab calc(25% + 1px),
-            #1e88e5 calc(25% - 1px),
-            #3949ab calc(25% + 1px),
-            #1e88e5 calc(25% - 1px),
-            #3949ab,
-            #1e88e5,
-            #3949ab calc(50% + 10px),
-            #1e88e5 calc(50% - 10px),
-            #3949ab
-          );
-        border-radius: 1em;
-      }
-      .game-box {
-        width: fit-content;
-        height: max-content;
-      }
-    </style>
+    
     <title>Document</title>
   </head>
   <body>
@@ -242,81 +142,7 @@
       </div>
     </div>
     <div id="name blog"></div>
-    <script>
-      let s = document.getElementById("start");
-      let g = document.getElementById("game");
-
-      let list = document.querySelectorAll(".col");
-      let f = 0;
-
-      let player1 = [];
-      let player2 = [];
-
-      let n1 = document.getElementById("input-1");
-      let n2 = document.getElementById("input-2");
-
-      s.onclick = function () {
-        if (g.style.display == "none") {
-          if (n1.value === "" || n2.value === "") {
-            alert("Enter player name");
-          } else {
-            g.style.display = "grid";
-          }
-        } else {
-          g.style.display = "none";
-        }
-      };
-
-      function checkWinner(playerMoves) {
-        const winningCombinations = [
-          [1, 2, 3],
-          [4, 5, 6],
-          [7, 8, 9],
-          [1, 4, 7],
-          [2, 5, 8],
-          [3, 6, 9],
-          [1, 5, 9],
-          [3, 5, 7],
-        ];
-
-        return winningCombinations.some(combination =>
-          combination.every(move => playerMoves.includes(move))
-        );
-      }
-
-      function dis(y) {
-        if (list[y - 1].innerHTML === "X" || list[y - 1].innerHTML === "O") {
-          list[y - 1].isContentEditable = false;
-          return;
-        }
-        if (list[y - 1] !== "X" || list[y - 1] !== "O") {
-          if (f % 2 === 0) {
-            list[y - 1].innerHTML = "X";
-            player1.push(y);
-            list[y - 1].isContentEditable = false;
-            f++;
-          } else {
-            list[y - 1].innerHTML = "O";
-            player2.push(y);
-            list[y - 1].isContentEditable = false;
-            f++;
-          }
-        }
-
-        if (f >= 5) {
-          if (checkWinner(player1)) {
-            document.getElementById("load").style.visibility = "visible";
-            alert(`Player 1 wins: ${n1.value}`);
-          } else if (checkWinner(player2)) {
-            document.getElementById("load").style.visibility = "visible";
-            alert(`Player 2 wins: ${n2.value}`);
-          } else if (f === 9) {
-            document.getElementById("load").style.visibility = "visible";
-            alert("Game Draw");
-          }
-        }
-      }
-    </script>
+    <script src="./script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
